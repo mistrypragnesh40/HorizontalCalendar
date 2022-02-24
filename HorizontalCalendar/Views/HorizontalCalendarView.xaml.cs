@@ -14,13 +14,13 @@ using Xamarin.Forms.Xaml;
 namespace HorizontalCalendar.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CalendarView : StackLayout, INotifyPropertyChanged
+    public partial class HorizontalCalendarView : StackLayout, INotifyPropertyChanged
     {
         #region Properties
         public static readonly BindableProperty HeaderBackgroundColorProperty = BindableProperty.Create(
         propertyName: nameof(HeaderBackgroundColor),
         returnType: typeof(Color),
-        declaringType: typeof(CalendarView),
+        declaringType: typeof(HorizontalCalendarView),
         defaultValue: Color.Orange,
         defaultBindingMode: BindingMode.OneWay
         );
@@ -33,7 +33,7 @@ namespace HorizontalCalendar.Views
         public static readonly BindableProperty HeaderTextColorProperty = BindableProperty.Create(
         propertyName: nameof(HeaderTextColor),
         returnType: typeof(Color),
-        declaringType: typeof(CalendarView),
+        declaringType: typeof(HorizontalCalendarView),
         defaultValue: Color.White,
         defaultBindingMode: BindingMode.OneWay
         );
@@ -46,7 +46,7 @@ namespace HorizontalCalendar.Views
         public static readonly BindableProperty LeftRightArrowColorProperty = BindableProperty.Create(
            propertyName: nameof(LeftRightArrowColor),
            returnType: typeof(Color),
-           declaringType: typeof(CalendarView),
+           declaringType: typeof(HorizontalCalendarView),
            defaultValue: Color.Black,
            defaultBindingMode: BindingMode.OneWay
            );
@@ -60,7 +60,7 @@ namespace HorizontalCalendar.Views
         public static readonly BindableProperty SelectedDateBackGroundColorProperty = BindableProperty.Create(
           propertyName: nameof(SelectedDateBackGroundColor),
           returnType: typeof(Color),
-          declaringType: typeof(CalendarView),
+          declaringType: typeof(HorizontalCalendarView),
           defaultValue: Color.Green,
           defaultBindingMode: BindingMode.OneWay
           );
@@ -74,7 +74,7 @@ namespace HorizontalCalendar.Views
         public static readonly BindableProperty SelectedDateTextColorProperty = BindableProperty.Create(
         propertyName: nameof(SelectedDateTextColor),
         returnType: typeof(Color),
-        declaringType: typeof(CalendarView),
+        declaringType: typeof(HorizontalCalendarView),
         defaultValue: Color.White,
         defaultBindingMode: BindingMode.OneWay
         );
@@ -87,11 +87,11 @@ namespace HorizontalCalendar.Views
 
 
         public static readonly BindableProperty SelectedDateProperty = BindableProperty.Create(
-            nameof(SelectedDate), 
-            typeof(DateTime?),
-            typeof(CalendarView),
-            DateTime.Now,
-            BindingMode.TwoWay);
+        nameof(SelectedDate), 
+        typeof(DateTime?),
+        typeof(HorizontalCalendarView),
+        DateTime.Now,
+        BindingMode.TwoWay);
 
         public DateTime? SelectedDate
         {
@@ -110,10 +110,10 @@ namespace HorizontalCalendar.Views
 
 
         #region Constructor
-        public CalendarView()
+        public HorizontalCalendarView()
         {
             InitializeComponent();
-            this.BindingContext = new CalendarViewModel(this); ;
+            this.BindingContext = new CalendarViewModel(this); 
         }
         #endregion
 

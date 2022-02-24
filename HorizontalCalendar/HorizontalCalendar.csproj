@@ -17,7 +17,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\CalendarView.xaml">
+    <Compile Update="Views\HorizontalCalendarView.xaml.cs">
+      <DependentUpon>HorizontalCalendarView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\HorizontalCalendarView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

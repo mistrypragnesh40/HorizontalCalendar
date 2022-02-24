@@ -50,11 +50,11 @@ namespace HorizontalCalendar.ViewModels
             get => _selectedDateInString;
             set => SetProperty(ref _selectedDateInString, value);
         }
-        private CalendarView _uiRef;
+        private HorizontalCalendarView _uiRef;
         #endregion
 
         #region Constructor
-        public CalendarViewModel(CalendarView uiRef)
+        public CalendarViewModel(HorizontalCalendarView uiRef)
         {
             MaxYear = DateTime.Now.Year + 30;
             MinYear = DateTime.Now.Year - 100;
