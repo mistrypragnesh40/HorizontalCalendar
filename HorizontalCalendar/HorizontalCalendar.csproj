@@ -9,7 +9,7 @@
     <PackageProjectUrl>https://xamarincodingtutorial.blogspot.com/2022/02/horizontal-calendar-control.html</PackageProjectUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>HorizontalCalendarControl</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Xamarin Coding Tutorial</Authors>
     <Company>Xamarin Coding Tutorial</Company>
     <Product>Xamarin Coding Tutorial</Product>
@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
 

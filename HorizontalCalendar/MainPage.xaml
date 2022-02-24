@@ -6,8 +6,8 @@
              xmlns:viewmodels="clr-namespace:HorizontalCalendar.ViewModels"
              x:Class="HorizontalCalendar.MainPage">
 
-    <StackLayout >
-        <views:HorizontalCalendarControl    />
+    <StackLayout Margin="0,100,0,0" >
+        <views:HorizontalCalendarControl  x:Name="calendarControl"  />
     </StackLayout>
 
 </ContentPage>

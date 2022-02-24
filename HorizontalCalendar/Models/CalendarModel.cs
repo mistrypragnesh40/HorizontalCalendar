@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HorizontalCalendar.Models
 {
-    internal class CalendarModel : BaseViewModel
+    public class CalendarModel : BaseViewModel
     {
         public int Year { get; set; }
         public int Month { get; set; }

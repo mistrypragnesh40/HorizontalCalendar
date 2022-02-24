@@ -1,33 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:viewmodels="clr-namespace:HorizontalCalendar.ViewModels"
              xmlns:models="clr-namespace:HorizontalCalendar.Models"
-             x:DataType="viewmodels:CalendarViewModel"
              x:Name="this"       
-             x:Class="HorizontalCalendar.Views.HorizontalCalendarControl"  Spacing="0"
+             x:Class="HorizontalCalendar.Views.HorizontalCalendarControl" 
+             BindingContext="{x:Reference this}"
              >
 
-    <StackLayout Spacing="0" Padding="5,0,5,5" BackgroundColor="{Binding Source={x:Reference this},Path=HeaderBackgroundColor}">
+    <StackLayout Spacing="0" Padding="5,0,5,5" BackgroundColor="{Binding HeaderBackgroundColor}">
         <StackLayout  Grid.Row="0"  Orientation="Horizontal" Spacing="20">
-            <Label TextColor="{Binding Source={x:Reference this},Path=HeaderTextColor}" VerticalOptions="Center"   HorizontalOptions="StartAndExpand" Text="{Binding CurrentMonthYear}"   FontSize="25" />
-            <Label TextColor="{Binding Source={x:Reference this},Path=LeftRightArrowColor}" Text="&lt;" FontSize="35"    HorizontalTextAlignment="Start" >
+            <Label TextColor="{Binding HeaderTextColor}" VerticalOptions="Center"   HorizontalOptions="StartAndExpand" Text="{Binding CurrentMonthYear}"   FontSize="25" />
+            <Label TextColor="{Binding LeftRightArrowColor}" Text="&lt;" FontSize="35"    HorizontalTextAlignment="Start" >
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding PreviousMonthCommand}" />
                 </Label.GestureRecognizers>
             </Label>
-            <Label TextColor="{Binding Source={x:Reference this},Path=LeftRightArrowColor}" Text="&gt;"  FontSize="35"   HorizontalOptions="End" >
+            <Label TextColor="{Binding LeftRightArrowColor}" Text="&gt;"  FontSize="35"   HorizontalOptions="End" >
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NextMonthCommand}" />
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>
-        <Label TextColor="{Binding Source={x:Reference this},Path=HeaderTextColor}" Text="{Binding SelectedDateInString}" FontSize="18"  />
+        <Label TextColor="{Binding HeaderTextColor}" Text="{Binding SelectedDateInString}" FontSize="18"  />
     </StackLayout>
 
-    <CollectionView  ItemsSource="{Binding CalendarList}"   >
+    <CollectionView  ItemsSource="{Binding CalendarList}"    >
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
+            <GridItemsLayout HorizontalItemSpacing="20" />
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="models:CalendarModel">
@@ -53,7 +52,7 @@
                         </Frame.Triggers>
                     </Frame>
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Source={x:Reference this}, Path=BindingContext.CurrentDateCommand}" CommandParameter="{Binding .}" />
+                        <TapGestureRecognizer Command="{Binding Source={x:Reference this},Path=CurrentDateCommand}" CommandParameter="{Binding .}" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
             </DataTemplate>
