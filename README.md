@@ -3,7 +3,7 @@ Horizontal Calendar Control - is a cross-platform plugin for Xamairn Forms that 
 
 ![image](https://user-images.githubusercontent.com/47309472/155514027-81443347-e4aa-4915-b1f2-4c8e14de4280.png)
 
-<h2>How To Use </h2>
+## How To Use
 Nuget: https://www.nuget.org/packages/HorizontalCalendarControl/1.0.1  
 
 Install this plugin in your Xamarin Form Project.  
@@ -19,7 +19,7 @@ Write Following Code In Your XAML Page.
  <views:HorizontalCalendarControl LeftRightArrowColor="White"   />
 ```
 
-<h2>UI Customization</h2>
+## UI Customization
 ![image](https://user-images.githubusercontent.com/47309472/155515110-0f1d47ad-8cbf-43dd-843d-2cb1a0133d31.png)  
 
 Following Property, you can use for customizing Calendar UI  
