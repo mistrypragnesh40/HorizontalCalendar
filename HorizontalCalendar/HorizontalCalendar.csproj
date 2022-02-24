@@ -4,8 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <PackageIcon>icon.png</PackageIcon>
-    <RepositoryUrl>https://github.com/mistrypragnesh40/HorizontalCalendar</RepositoryUrl>
-    <PackageTags>Calendar Control, Horizontal Calendar</PackageTags>
+    <RepositoryUrl></RepositoryUrl>
+    <PackageTags>Horizontal Calendar Control, Single Row Calendar</PackageTags>
     <PackageProjectUrl>https://xamarincodingtutorial.blogspot.com/2022/02/horizontal-calendar-control.html</PackageProjectUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>HorizontalCalendarControl</PackageId>

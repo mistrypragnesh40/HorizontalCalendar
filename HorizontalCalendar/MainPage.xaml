@@ -7,7 +7,7 @@
              x:Class="HorizontalCalendar.MainPage">
 
     <StackLayout >
-        <views:HorizontalCalendarView     />
+        <views:HorizontalCalendarControl    />
     </StackLayout>
 
 </ContentPage>
