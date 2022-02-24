@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             x:DataType="viewmodels:MainPageViewModel"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:views="clr-namespace:HorizontalCalendar.Views" xmlns:viewmodels="clr-namespace:HorizontalCalendar.ViewModels"
+             x:Class="HorizontalCalendar.MainPage">
+
+    <StackLayout >
+        <Label Text="{Binding Source={x:Reference tht},Path=SelectedDate}" />
+        <views:CalendarView  x:Name="tht"    />
+    </StackLayout>
+
+</ContentPage>
