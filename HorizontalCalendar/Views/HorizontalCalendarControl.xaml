@@ -5,7 +5,7 @@
              xmlns:models="clr-namespace:HorizontalCalendar.Models"
              x:DataType="viewmodels:CalendarViewModel"
              x:Name="this"       
-             x:Class="HorizontalCalendar.Views.HorizontalCalendarView"  Spacing="0"
+             x:Class="HorizontalCalendar.Views.HorizontalCalendarControl"  Spacing="0"
              >
 
     <StackLayout Spacing="0" Padding="5,0,5,5" BackgroundColor="{Binding Source={x:Reference this},Path=HeaderBackgroundColor}">

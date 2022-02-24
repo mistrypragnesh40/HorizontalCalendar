@@ -3,6 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/mistrypragnesh40/HorizontalCalendar</RepositoryUrl>
+    <PackageTags>Calendar Control, Horizontal Calendar</PackageTags>
+    <PackageProjectUrl>https://xamarincodingtutorial.blogspot.com/2022/02/horizontal-calendar-control.html</PackageProjectUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>HorizontalCalendarControl</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Xamarin Coding Tutorial</Authors>
+    <Company>Xamarin Coding Tutorial</Company>
+    <Product>Xamarin Coding Tutorial</Product>
+    <Description>Custom Horizontal Calendar Control</Description>
+    <Copyright>Xamarin Coding Tutorial</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -17,14 +30,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\HorizontalCalendarView.xaml.cs">
-      <DependentUpon>HorizontalCalendarView.xaml</DependentUpon>
+    <Compile Update="Views\HorizontalCalendarControl.xaml.cs">
+      <DependentUpon>HorizontalCalendarControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\HorizontalCalendarView.xaml">
+    <EmbeddedResource Update="Views\HorizontalCalendarControl.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 </Project>
