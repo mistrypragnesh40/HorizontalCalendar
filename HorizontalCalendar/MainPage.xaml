@@ -7,7 +7,9 @@
              x:Class="HorizontalCalendar.MainPage">
 
     <StackLayout Margin="0,100,0,0" >
-        <views:HorizontalCalendarControl  x:Name="calendarControl"  />
+        <Label Text="{Binding Source={x:Reference calendarControl},Path=SelectedDate}" />
+        <views:HorizontalCalendarControl SelectedDateCommand="{Binding SelectedDateCommand}"   x:Name="calendarControl"  />
+        
     </StackLayout>
 
 </ContentPage>

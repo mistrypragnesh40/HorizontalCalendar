@@ -114,35 +114,25 @@ namespace HorizontalCalendar.Views
             set => base.SetValue(SelectedDateTextColorProperty, value);
         }
 
-
-
+        public static readonly BindableProperty SelectedDateCommandProperty = BindableProperty.Create(
+        propertyName: nameof(SelectedDateCommand),
+        returnType: typeof(ICommand),
+        declaringType: typeof(HorizontalCalendarControl));
+     
+        public ICommand SelectedDateCommand
+        {
+            get => (ICommand)base.GetValue(SelectedDateCommandProperty);
+            set => base.SetValue(SelectedDateCommandProperty, value);
+        }
 
         #endregion
 
         #region Selection Date Property
-
-        public static readonly BindableProperty SelectedDateProperty = BindableProperty.Create(
-        nameof(SelectedDate),
-        typeof(DateTime?),
-        typeof(HorizontalCalendarControl),
-        DateTime.Now,
-        BindingMode.TwoWay, propertyChanged: SelectedDatePropertyChanged);
-
-        private static void SelectedDatePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        private DateTime _selectedDate = DateTime.Now;
+        public DateTime SelectedDate
         {
-            var currentControls = (HorizontalCalendarControl)bindable;
-
-            if (newValue != null)
-            {
-                var date = (DateTime)newValue;
-                currentControls.BindDates(date);
-            }
-        }
-
-        public DateTime? SelectedDate
-        {
-            get => (DateTime)base.GetValue(SelectedDateProperty);
-            set => base.SetValue(SelectedDateProperty, value);
+            get => _selectedDate;
+            set => SetProperty(ref _selectedDate, value);
         }
         #endregion
 
@@ -177,7 +167,7 @@ namespace HorizontalCalendar.Views
                 dates.Add(obj);
             }
 
-            var currentDate = dates.Where(f => f.Date.Date == SelectedDate.Value.Date).FirstOrDefault();
+            var currentDate = dates.Where(f => f.Date.Date == SelectedDate.Date).FirstOrDefault();
             if (currentDate != null)
             {
                 CurrentDate = currentDate.Date;
@@ -205,6 +195,9 @@ namespace HorizontalCalendar.Views
 
 
         #region Commands
+
+
+
         // used for Traverse through date
         public ICommand CurrentDateCommand
         {
@@ -219,6 +212,7 @@ namespace HorizontalCalendar.Views
                         item.CurrentDate = true;
                         SelectedDate = CurrentDate;
                         SelectedDateInString = item.Date.ToString("dddd, dd MMMM");
+                        SelectedDateCommand?.Execute(SelectedDate);
                     }
 
                 });

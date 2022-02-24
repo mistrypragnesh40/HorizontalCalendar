@@ -17,10 +17,12 @@ namespace HorizontalCalendar.ViewModels
 
         public MainPageViewModel()
         {
+            SelectedDate = DateTime.Now.AddDays(10);
         }
 
-        public ICommand SelectedDateCommand => new Command(() =>
+        public ICommand SelectedDateCommand => new Command<DateTime>((selectedDate) =>
         {
+            SelectedDate = selectedDate; 
         });
 
     }

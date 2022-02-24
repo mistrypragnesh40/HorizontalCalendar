@@ -4,58 +4,60 @@
              xmlns:models="clr-namespace:HorizontalCalendar.Models"
              x:Name="this"       
              x:Class="HorizontalCalendar.Views.HorizontalCalendarControl" 
-             BindingContext="{x:Reference this}"
              >
 
-    <StackLayout Spacing="0" Padding="5,0,5,5" BackgroundColor="{Binding HeaderBackgroundColor}">
-        <StackLayout  Grid.Row="0"  Orientation="Horizontal" Spacing="20">
-            <Label TextColor="{Binding HeaderTextColor}" VerticalOptions="Center"   HorizontalOptions="StartAndExpand" Text="{Binding CurrentMonthYear}"   FontSize="25" />
-            <Label TextColor="{Binding LeftRightArrowColor}" Text="&lt;" FontSize="35"    HorizontalTextAlignment="Start" >
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding PreviousMonthCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
-            <Label TextColor="{Binding LeftRightArrowColor}" Text="&gt;"  FontSize="35"   HorizontalOptions="End" >
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NextMonthCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
+    <StackLayout BindingContext="{x:Reference this}">
+        <StackLayout Spacing="0" Padding="5,0,5,5" BackgroundColor="{Binding HeaderBackgroundColor}">
+            <StackLayout  Grid.Row="0"  Orientation="Horizontal" Spacing="20">
+                <Label TextColor="{Binding HeaderTextColor}" VerticalOptions="Center"   HorizontalOptions="StartAndExpand" Text="{Binding CurrentMonthYear}"   FontSize="25" />
+                <Label TextColor="{Binding LeftRightArrowColor}" Text="&lt;" FontSize="35"    HorizontalTextAlignment="Start" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PreviousMonthCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label TextColor="{Binding LeftRightArrowColor}" Text="&gt;"  FontSize="35"   HorizontalOptions="End" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NextMonthCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <Label TextColor="{Binding HeaderTextColor}" Text="{Binding SelectedDateInString}" FontSize="18"  />
         </StackLayout>
-        <Label TextColor="{Binding HeaderTextColor}" Text="{Binding SelectedDateInString}" FontSize="18"  />
-    </StackLayout>
 
-    <CollectionView  ItemsSource="{Binding CalendarList}"    >
-        <CollectionView.ItemsLayout>
-            <GridItemsLayout HorizontalItemSpacing="20" />
-        </CollectionView.ItemsLayout>
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="models:CalendarModel">
-                <StackLayout >
-                    <Label  HorizontalTextAlignment="Center"   Text="{Binding DayName}" />
-                    <Frame HasShadow="False"  Padding="0"  HeightRequest="35"  WidthRequest="36" >
-                        <Label TextColor="Black"  Text="{Binding DateInNumber}" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" >
-                            <Label.Triggers>
-                                <DataTrigger TargetType="Label" Binding="{Binding CurrentDate}" Value="True">
-                                    <Setter Property="TextColor" Value="{Binding Source={x:Reference this},Path=SelectedDateTextColor}" />
+        <CollectionView  ItemsSource="{Binding CalendarList}"    >
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout HorizontalItemSpacing="20" Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:CalendarModel">
+                    <StackLayout >
+                        <Label  HorizontalTextAlignment="Center"   Text="{Binding DayName}" />
+                        <Frame HasShadow="False"  Padding="0"  HeightRequest="35"  WidthRequest="36" >
+                            <Label TextColor="Black"  Text="{Binding DateInNumber}" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" >
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding CurrentDate}" Value="True">
+                                        <Setter Property="TextColor" Value="{Binding Source={x:Reference this},Path=SelectedDateTextColor}" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <Frame.Triggers>
+                                <DataTrigger TargetType="Frame" Binding="{Binding CurrentDate}" Value="True">
+                                    <Setter Property="CornerRadius" Value="18" />
+                                    <Setter Property="BackgroundColor" Value="{Binding Source={x:Reference this},Path=SelectedDateBackGroundColor}" />
                                 </DataTrigger>
-                            </Label.Triggers>
-                        </Label>
-                        <Frame.Triggers>
-                            <DataTrigger TargetType="Frame" Binding="{Binding CurrentDate}" Value="True">
-                                <Setter Property="CornerRadius" Value="18" />
-                                <Setter Property="BackgroundColor" Value="{Binding Source={x:Reference this},Path=SelectedDateBackGroundColor}" />
-                            </DataTrigger>
-                            <DataTrigger TargetType="Frame" Binding="{Binding CurrentDate}" Value="False">
-                                <Setter Property="CornerRadius" Value="0" />
-                                <Setter Property="BackgroundColor" Value="Transparent" />
-                            </DataTrigger>
-                        </Frame.Triggers>
-                    </Frame>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Source={x:Reference this},Path=CurrentDateCommand}" CommandParameter="{Binding .}" />
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                                <DataTrigger TargetType="Frame" Binding="{Binding CurrentDate}" Value="False">
+                                    <Setter Property="CornerRadius" Value="0" />
+                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                </DataTrigger>
+                            </Frame.Triggers>
+                        </Frame>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:Reference this},Path=CurrentDateCommand}" CommandParameter="{Binding .}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+   
 </StackLayout>
