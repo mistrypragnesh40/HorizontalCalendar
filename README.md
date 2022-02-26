@@ -40,16 +40,33 @@ Following Property, you can use for customizing Calendar UI
       LeftRightArrowColor="Black"   />
 ```
 
-## How To Get Selected Date  
+## How to display the Selected date 
 
-Write Following Code to Get Selected Date  
+Write Following Code to display Selected Date  
 ```
     <Label Text="{Binding Source={x:Reference calendarControl},Path=SelectedDate}" />
     <views:HorizontalCalendarControl  x:Name="calendarControl"/>
 ```
-## Get Date On Button Click Event (MVVM)
+## How to get Selected Date
+SelectedDateCommand: Use this command to get the selected Date  
+
+Design Side:  
+
+``` 
+<views:HorizontalCalendarControl SelectedDateCommand="{Binding SelectedDateCommand}"   x:Name="calendarControl"  />
 ```
-    <views:HorizontalCalendarControl   x:Name="calendarControl"  />
-    <Button Text="Get Selected Date" Command="{Binding GetDateCommand}" 
-            CommandParameter="{Binding Source={x:Reference calendarControl},Path=SelectedDate}"  />
+Code Behind:  
+
+```
+private DateTime _selectedDate;
+public DateTime SelectedDate
+{
+   get => _selectedDate;
+   set => SetProperty(ref _selectedDate, value);
+}
+ 
+public ICommand SelectedDateCommand => new Command<DateTime>((selectedDate) =>
+{
+     SelectedDate = selectedDate; 
+});
 ```
